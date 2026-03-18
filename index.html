@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Airport Parking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="journey-container">
+
+    <!-- Fixed Header -->
+    <header class="header">
+      <div class="header-content">
+        <img id="brandLogo" src="" alt="" class="brand-logo">
+        <h1 id="brandName" class="brand-name"></h1>
+      </div>
+      <div class="journey-progress">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-label" id="progressLabel">Your Journey</div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+        <div class="hero-badge">Your Parking Journey</div>
+        <h2 class="hero-title">Find Your Perfect Parking</h2>
+        <p class="hero-subtitle">Follow the path to hassle-free airport parking</p>
+        <button class="hero-cta" onclick="scrollToStep(1)">
+          Start Your Journey
+          <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-indicator"></div>
+      </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <div class="timeline-container">
+
+      <!-- Step 1: Departure -->
+      <section class="journey-step" data-step="1" id="step1">
+        <div class="step-visual">
+          <div class="step-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20z" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M24 12v12l8 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="step-number">01</div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">When are you departing?</h3>
+          <p class="step-description">Select your drop-off date and time</p>
+          <div class="input-grid">
+            <div class="input-group">
+              <label for="outDate" class="input-label">Date</label>
+              <input type="date" id="outDate" class="input-field" required>
+            </div>
+            <div class="input-group">
+              <label for="outTime" class="input-label">Time</label>
+              <select id="outTime" class="input-field">
+                <option value="00:00">00:00</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00" selected>06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+              </select>
+            </div>
+          </div>
+          <button class="step-cta" onclick="scrollToStep(2)">
+            Continue Journey
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 2: Return -->
+      <section class="journey-step" data-step="2" id="step2">
+        <div class="step-visual">
+          <div class="step-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M4 24h40M36 16l8 8-8 8M12 32l-8-8 8-8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="step-number">02</div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">When are you returning?</h3>
+          <p class="step-description">Select your collection date and time</p>
+          <div class="input-grid">
+            <div class="input-group">
+              <label for="inDate" class="input-label">Date</label>
+              <input type="date" id="inDate" class="input-field" required>
+            </div>
+            <div class="input-group">
+              <label for="inTime" class="input-label">Time</label>
+              <select id="inTime" class="input-field">
+                <option value="00:00">00:00</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00" selected>12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="step-back" onclick="scrollToStep(1)">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M16 10H4M10 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Back
+            </button>
+            <button class="step-cta" onclick="scrollToStep(3)">
+              Continue Journey
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Destination -->
+      <section class="journey-step" data-step="3" id="step3">
+        <div class="step-visual">
+          <div class="step-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="step-number">03</div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">Where are you flying to?</h3>
+          <p class="step-description">Choose your destination</p>
+
+          <div id="destinationLoading" class="loading-state" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading destinations...</p>
+          </div>
+
+          <div id="destinationGrid" class="destination-grid"></div>
+
+          <div class="step-nav">
+            <button class="step-back" onclick="scrollToStep(2)">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M16 10H4M10 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Back
+            </button>
+            <button class="step-skip" onclick="skipFlight()">Skip Flight</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Flight -->
+      <section class="journey-step" data-step="4" id="step4">
+        <div class="step-visual">
+          <div class="step-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M24 8L8 24l6 2 4-4 6 12 4-4-2-14 10 6z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-number">04</div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title" id="flightStepTitle">Select your flight</h3>
+          <p class="step-description">Choose from available flights</p>
+
+          <div id="flightLoading" class="loading-state" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading flights...</p>
+          </div>
+
+          <div id="flightList" class="flight-list"></div>
+
+          <div class="step-nav">
+            <button class="step-back" onclick="scrollToStep(3)">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M16 10H4M10 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Back
+            </button>
+            <button class="step-skip" onclick="skipFlight()">Skip Flight</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 5: Summary -->
+      <section class="journey-step summary-step" data-step="5" id="step5">
+        <div class="step-visual">
+          <div class="step-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M40 24c0 8.837-7.163 16-16 16S8 32.837 8 24 15.163 8 24 8s16 7.163 16 16z" stroke="currentColor" stroke-width="3"/>
+              <path d="M16 24l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-number">05</div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">Your journey details</h3>
+          <p class="step-description">Review and find your perfect parking</p>
+
+          <div class="summary-cards">
+            <div class="summary-card">
+              <div class="summary-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor"/>
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="summary-label">Drop-off</div>
+              <div class="summary-value" id="summaryOutDate"></div>
+              <div class="summary-time" id="summaryOutTime"></div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M2 7l10 5 10-5-10-5-10 5z" fill="currentColor"/>
+                  <path d="M2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="summary-label">Collection</div>
+              <div class="summary-value" id="summaryInDate"></div>
+              <div class="summary-time" id="summaryInTime"></div>
+            </div>
+
+            <div class="summary-card" id="flightCard">
+              <div class="summary-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 4L4 12l3 1 2-2 3 6 2-2-1-7 5 3z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="summary-label">Flight</div>
+              <div class="summary-value" id="summaryFlight"></div>
+              <div class="summary-airline" id="summaryAirline"></div>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="step-back" onclick="scrollToStep(4)">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M16 10H4M10 16l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Back
+            </button>
+            <button class="step-cta final-cta" onclick="submitSearch()">
+              Find Parking
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 <span id="footerBrand"></span>. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
