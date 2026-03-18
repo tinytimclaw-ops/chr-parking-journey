@@ -146,8 +146,8 @@ function updateProgress() {
     currentStep > 0 ? `Step ${currentStep} of ${steps.length}` : "Your Journey";
 }
 
-// Scroll to step
-function scrollToStep(stepNumber) {
+// Scroll to step (expose globally for onclick handlers)
+window.scrollToStep = function(stepNumber) {
   // Validate before scrolling
   if (stepNumber === 2) {
     const outDate = document.getElementById("outDate").value;
@@ -236,7 +236,7 @@ function renderDestinations() {
     .join("");
 }
 
-function selectDestination(index) {
+window.selectDestination = function(index) {
   selectedDestination = availableDestinations[index];
   document.getElementById("flightStepTitle").textContent = `Flights to ${selectedDestination.city}`;
   loadFlights(selectedDestination.airports);
@@ -304,13 +304,13 @@ function renderFlights(flights) {
     .join("");
 }
 
-function selectFlight(flightData) {
+window.selectFlight = function(flightData) {
   selectedFlight = flightData;
   updateSummary();
   scrollToStep(5);
 }
 
-function skipFlight() {
+window.skipFlight = function() {
   selectedFlight = null;
   selectedDestination = null;
   updateSummary();
@@ -345,8 +345,8 @@ function updateSummary() {
   }
 }
 
-// Submit search
-function submitSearch() {
+// Submit search (expose globally)
+window.submitSearch = function() {
   const outDate = document.getElementById("outDate").value;
   const outTime = document.getElementById("outTime").value;
   const inDate = document.getElementById("inDate").value;
