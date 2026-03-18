@@ -179,7 +179,7 @@ window.scrollToStep = function(stepNumber) {
   const step = document.getElementById(`step${stepNumber}`);
   if (step) {
     const headerHeight = document.querySelector(".header").offsetHeight;
-    const stepTop = step.offsetTop - headerHeight - 20;
+    const stepTop = step.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
     window.scrollTo({ top: stepTop, behavior: "smooth" });
   }
 };
