@@ -182,7 +182,7 @@ window.scrollToStep = function(stepNumber) {
     const stepTop = step.offsetTop - headerHeight - 20;
     window.scrollTo({ top: stepTop, behavior: "smooth" });
   }
-}
+};
 
 // Destinations API
 async function loadDestinations() {
@@ -240,8 +240,8 @@ window.selectDestination = function(index) {
   selectedDestination = availableDestinations[index];
   document.getElementById("flightStepTitle").textContent = `Flights to ${selectedDestination.city}`;
   loadFlights(selectedDestination.airports);
-  scrollToStep(4);
-}
+  window.scrollToStep(4);
+};
 
 // Flights API
 async function loadFlights(airportCodes) {
@@ -307,15 +307,15 @@ function renderFlights(flights) {
 window.selectFlight = function(flightData) {
   selectedFlight = flightData;
   updateSummary();
-  scrollToStep(5);
-}
+  window.scrollToStep(5);
+};
 
 window.skipFlight = function() {
   selectedFlight = null;
   selectedDestination = null;
   updateSummary();
-  scrollToStep(5);
-}
+  window.scrollToStep(5);
+};
 
 // Summary
 function updateSummary() {
@@ -377,4 +377,13 @@ window.submitSearch = function() {
   const searchUrl = `https://${basedomain}/static/?selectProduct=cp&#/categories?agent=${agent}&ppts=&customer_ref=&lang=en&adults=2&depart=${departCode}&terminal=&arrive=&flight=${flightCode}&in=${inDate}&out=${outDate}&park_from=${outTimeEncoded}&park_to=${inTimeEncoded}&filter_meetandgreet=&filter_parkandride=&children=0&infants=0&redirectReferal=carpark&from_categories=true&adcode=${adcode}&promotionCode=${promotionCode}`;
 
   window.location.href = searchUrl;
-}
+};
+
+// Debug: Log when functions are loaded
+console.log('Journey functions loaded:', {
+  scrollToStep: typeof window.scrollToStep,
+  selectDestination: typeof window.selectDestination,
+  selectFlight: typeof window.selectFlight,
+  skipFlight: typeof window.skipFlight,
+  submitSearch: typeof window.submitSearch
+});
